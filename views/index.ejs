@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Andy's Orchard Tracker</title>
+</head>
+<body>
+  <h1> Find your most productive trees. Prune the losers. </h1>
+  <form action="/tree-record" method="POST">
+    <!-- date planted / name / variety/ yield / delete -->
+    <input type="date" placeholder="date" name="date">
+    <input type="text" placeholder="name" name="name">
+    <input type="text" placeholder="variety" name="variety">
+    <input type="text" placeholder="yield" name="yield">
+    <button type="submit">Submit</button>
+  </form>
+  
+  <h2> Your Trees </h2>
+
+  <ul class="tree-list">
+    <!-- Loop through quotes -->
+    <% for(var i = 0; i < trees.length; i++) {%>
+      <li class="trees">
+        <span><%= trees[i].date %></span>
+        <span><%= trees[i].name %></span>
+        <span><%= trees[i].variety %></span>
+        <span><%= trees[i].yield %></span>
+      </li>
+    <% } %>
+  </ul>
+
+</body>
+</html>
