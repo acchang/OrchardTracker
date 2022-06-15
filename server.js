@@ -15,6 +15,12 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     
     app.set('view engine', 'ejs')
     app.use(bodyParser.urlencoded({ extended: true }))
+    app.use(express.static('public'))
+    app.use(bodyParser.json())
+
+    app.listen(3000, function() {
+      console.log('listening on 3000')
+      })
 
     app.post('/tree-record', (req, res) => {
         treesCollection.insertOne(req.body)
@@ -26,21 +32,32 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
 
       app.get('/', (req, res) => {
         db.collection('trees').find().toArray()
-          .then(results => {
-            res.render('index.ejs', { trees: results })
-          })
-          .catch(error => console.error(error))
-          res.render('index.ejs', {})
+        .then(results => {
+          res.render('index.ejs', { trees: results })
+        })
+        .catch(/* ... */)
       })
 
+      app.put('/trees', (req, res) => {
+        treesCollection.findOneAndUpdate(
 
-    app.get('/', (req, res) => {
-        res.sendFile('/Users/andrewchang/the_odin_project/OrchardTracker' + '/index.html')
-        })
+          { variety: 'beans' },
+          {
+            $set: {
+              variety: req.body.variety,
+              date: req.body.date
+            }
+          },
+          {
+            upsert: true
+          }
 
-    app.listen(3000, function() {
-        console.log('listening on 3000')
-        })
+        )
+          .then(result => {
+            console.log(result)
+           })
+          .catch(error => console.error(error))
+      })
 
   })
   .catch(error => console.error(error))

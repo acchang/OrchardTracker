@@ -9,12 +9,22 @@
   <form action="/tree-record" method="POST">
     <!-- date planted / name / variety/ yield / delete -->
     <input type="date" placeholder="date" name="date">
-    <input type="text" placeholder="name" name="name">
+    <input type="text" placeholder="plot" name="plot">
     <input type="text" placeholder="variety" name="variety">
     <input type="text" placeholder="yield" name="yield">
     <button type="submit">Submit</button>
   </form>
   
+
+  <div>
+    <h2>Replace beans</h2>
+    <p>
+      Replace beans with tulips
+    </p>
+    <button id="update-button">Replace beans</button>
+  </div>
+
+
   <h2> Your Trees </h2>
 
   <ul class="tree-list">
@@ -22,12 +32,13 @@
     <% for(var i = 0; i < trees.length; i++) {%>
       <li class="trees">
         <span><%= trees[i].date %></span>
-        <span><%= trees[i].name %></span>
+        <span><%= trees[i].plot %></span>
         <span><%= trees[i].variety %></span>
         <span><%= trees[i].yield %></span>
       </li>
     <% } %>
   </ul>
 
+  <script src="/main.js"></script>
 </body>
 </html>
