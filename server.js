@@ -13,15 +13,26 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     const db = client.db('my-trees')
     const treesCollection = db.collection('trees')
     
+    app.set('view engine', 'ejs')
     app.use(bodyParser.urlencoded({ extended: true }))
 
-    app.post('/trees', (req, res) => {
+    app.post('/tree-record', (req, res) => {
         treesCollection.insertOne(req.body)
           .then(result => {
-            console.log(result)
+            res.redirect('/')
           })
           .catch(error => console.error(error))
       })
+
+      app.get('/', (req, res) => {
+        db.collection('trees').find().toArray()
+          .then(results => {
+            res.render('index.ejs', { trees: results })
+          })
+          .catch(error => console.error(error))
+          res.render('index.ejs', {})
+      })
+
 
     app.get('/', (req, res) => {
         res.sendFile('/Users/andrewchang/the_odin_project/OrchardTracker' + '/index.html')

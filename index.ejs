@@ -14,5 +14,20 @@
     <input type="text" placeholder="yield" name="yield">
     <button type="submit">Submit</button>
   </form>
+
+  <h2> Your Trees </h2>
+
+  <ul class="tree-list">
+    <!-- Loop through quotes -->
+    <% for(var i = 0; i < trees.length; i++) {%>
+      <li class="quote">
+        <!-- Output name from the iterated quote object -->
+        <span><%= trees[i].name %></span>:
+        <!-- Output quote from the iterated quote object -->
+        <span><%= trees[i].quote %></span>
+      </li>
+    <% } %>
+  </ul>
+
 </body>
 </html>
