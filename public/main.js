@@ -72,7 +72,7 @@ update.addEventListener('click', _ => {
             date: '2000-03-20',
             // ideally set to today
             plot: '00',
-            variety: 'beans'
+            variety: 'soybeans'
         })
     })
   })
