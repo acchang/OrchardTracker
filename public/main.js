@@ -70,6 +70,8 @@ update.addEventListener('click', _ => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
             date: '2000-03-20',
+            // ideally set to today
+            plot: '00',
             variety: 'beans'
         })
     })

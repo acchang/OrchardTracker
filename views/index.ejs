@@ -4,12 +4,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Andy's Orchard Tracker</title>
+  <title>Your Harvest Tracker</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
-  <h1> Find your most productive plots. Renew unproductive ones. </h1>
-  <form action="/tree-record" method="POST">>
+  <h1>Your Harvest Tracker</h1>
+  <h2> Find your most productive plots. Renew unproductive ones. </h2>
+  <form action="/tree-record" method="POST">
     <input type="date" placeholder="date" name="date">
     <input type="text" placeholder="plot" name="plot">
     <input type="text" placeholder="variety" name="variety">
@@ -20,18 +21,18 @@
   <div>
     <h2>Replace corn with beans</h2>
     <p>
-      Rotating corn and soybeans allows us to use less nitrogen fertilizer when growing corn. Refresh page after replacing.
+    Rotating corn and soybeans allows us to use less fertilizer when growing corn. Refresh page after replacing.
     </p>
-    <button id="update-button">Replace corn</button>
+    Replace first-entered corn plot <button id="update-button">here</button>
   </div>
 
 
   <div>
     <h2>Remove cucumber plots</h2>
     <p>
-      Cucumbers are annuals. They need to be replanted every season.
+    Cucumbers are annuals. They need to be replanted every season.
     </p>
-    <button id="delete-button">Delete cucumbers</button>
+    Remove last-entered cucumber plot <button id="delete-button">here</button>
   </div>
 
   <div id="message"></div>

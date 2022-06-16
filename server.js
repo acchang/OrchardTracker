@@ -43,6 +43,7 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch(error => console.error(error))
       }) 
 
+
       app.put('/trees', (req, res) => {
         treesCollection.findOneAndUpdate(
           { variety: 'corn' },
@@ -53,7 +54,8 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
             }
           },
           {
-            upsert: true
+            upsert: false
+            // Upsert false so it doesn't just place a new one if none exists
           }
         )
         .then(result => {
