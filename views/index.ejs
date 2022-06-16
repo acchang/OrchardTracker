@@ -9,13 +9,10 @@
 </head>
 <body>
   <h1> Find your most productive plots. Renew unproductive ones. </h1>
-  <form action="/tree-record" method="POST">
-    <!-- date planted / name / variety/ yield / delete -->
-    <!-- use crate and fire for icons -->
+  <form action="/tree-record" method="POST">>
     <input type="date" placeholder="date" name="date">
     <input type="text" placeholder="plot" name="plot">
     <input type="text" placeholder="variety" name="variety">
-    <!-- <input type="text" placeholder="yield" name="yield"> -->
     <button type="submit">Submit</button>
   </form>
   
@@ -41,7 +38,7 @@
 
 
   <h2> Your Plots </h2>
-  <p>Click <span class='fa fa-fire'></span> to burn field. Click <span class='fa fa-seedling'></span> to update output.</p>
+  <p>Click <span class='fa fa-fire'></span> to burn a plot and start over. Click <span class='fa fa-seedling'></span> to update output.</p>
 
   <ul class="tree-list">
     <!-- Loop through quotes -->
