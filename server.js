@@ -64,22 +64,9 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       })
 
 
-      // app.delete('/trees', (req, res) => {
-      //   treesCollection.deleteOne(
-      //     { variety: req.body.variety },
-      //   )
-      //   .then(result => {
-      //     // if (result.deletedCount === 0) {
-      //     //   return res.json('No cukes to delete')
-      //     // }
-      //     res.json(`Deleted cukes`)
-      //   })
-      //   .catch(error => console.error(error))
-      // })
-
       app.delete('/trees', (req, res) => {
         treesCollection.deleteOne(
-          { variety: req.body.name },
+          { variety: req.body.variety },
           )
           .then(result => {
             if (result.deletedCount === 0) {
