@@ -5,7 +5,7 @@
   <title>Andy's Orchard Tracker</title>
 </head>
 <body>
-  <h1> Find your most productive trees. Prune the losers. </h1>
+  <h1> Find your most productive gardens. Prune the losers. </h1>
   <form action="/tree-record" method="POST">
     <!-- date planted / name / variety/ yield / delete -->
     <input type="date" placeholder="date" name="date">
@@ -17,15 +17,26 @@
   
 
   <div>
-    <h2>Replace beans</h2>
+    <h2>Replace corn with beans</h2>
     <p>
-      Replace beans with tulips
+      Rotating corn and soybeans allows farmers to use less nitrogen fertilizer when growing corn. 
     </p>
-    <button id="update-button">Replace beans</button>
+    <button id="update-button">Replace corn</button>
   </div>
 
 
-  <h2> Your Trees </h2>
+  <div>
+    <h2>Delete cucumbers</h2>
+    <p>
+      Delete all cucumber plots, they need to be replanted annually
+    </p>
+    <button id="delete-button">Delete cucumbers</button>
+  </div>
+
+  <div id="message"></div>
+
+
+  <h2> Your Plots </h2>
 
   <ul class="tree-list">
     <!-- Loop through quotes -->

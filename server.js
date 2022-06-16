@@ -38,10 +38,11 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         .catch(/* ... */)
       })
 
+ 
+
       app.put('/trees', (req, res) => {
         treesCollection.findOneAndUpdate(
-
-          { variety: 'beans' },
+          { variety: 'corn' },
           {
             $set: {
               variety: req.body.variety,
@@ -51,13 +52,47 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
           {
             upsert: true
           }
-
         )
-          .then(result => {
-            console.log(result)
+        .then(result => {
+          if (res.ok) return res.json()
+        })
+        .then(result => {
+            // console.log(res)
+            res.json('Success')
            })
           .catch(error => console.error(error))
       })
+
+
+      // app.delete('/trees', (req, res) => {
+      //   treesCollection.deleteOne(
+      //     { variety: req.body.variety },
+      //   )
+      //   .then(result => {
+      //     // if (result.deletedCount === 0) {
+      //     //   return res.json('No cukes to delete')
+      //     // }
+      //     res.json(`Deleted cukes`)
+      //   })
+      //   .catch(error => console.error(error))
+      // })
+
+      app.delete('/trees', (req, res) => {
+        treesCollection.deleteOne(
+          { variety: req.body.name },
+          )
+          .then(result => {
+            if (result.deletedCount === 0) {
+              return res.json('No cukes to delete')
+            }
+            res.json(`Deleted cukes`)
+          })
+          .catch(error => console.error(error))
+      })
+
+
+
+
 
   })
   .catch(error => console.error(error))
