@@ -22,25 +22,17 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
       console.log('listening on 3000')
       })
 
-    app.post('/tree-record', (req, res) => {
-        treesCollection.insertOne(req.body)
+      app.post('/tree-record', (req, res) => {
+        treesCollection.insertOne(
+          {date: req.body.date, plot: req.body.plot, 
+            variety: req.body.variety, yield: 0
+          })
           .then(result => {
+            console.log('plot added')
             res.redirect('/')
           })
           .catch(error => console.error(error))
       })
-
-      // app.post('/tree-record', (req, res) => {
-      //   treesCollection.insertOne(
-      //     {date: req.body.date, plot: req.body.plot, 
-      //       variety: req.body.variety, yield: 0
-      //     )
-      //     .then(result => {
-      //       console.log('plot added')
-      //       res.redirect('/')
-      //     })
-      //     .catch(error => console.error(error))
-      // })
 
 
       app.get('/', (req, res) => {
@@ -100,6 +92,33 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
         .catch(error => console.error(error))
       })
+
+
+      app.put('/addOneYield', (request, response) => {
+        db.collection('trees').updateOne({
+          date: request.body.DateUpdate, 
+          plot: request.body.PlotUpdate,
+          variety: request.body.VarietyUpdate,
+          yield: request.body.YieldUpdate},{
+            $set: {
+                yield:request.body.YieldUpdate + 1
+              }
+        },{
+            sort: {_id: -1},
+            upsert: true
+        })
+        .then(result => {
+            console.log('Added One')
+            response.json('Yield Added')
+        })
+        .catch(error => console.error(error))
+      })
+
+
+
+
+
+
 
   })
   .catch(error => console.error(error))

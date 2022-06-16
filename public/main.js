@@ -8,7 +8,6 @@ async function deletePlot(){
     const lineDate = this.parentNode.childNodes[1].innerText
     const linePlot = this.parentNode.childNodes[3].innerText
     const lineVariety = this.parentNode.childNodes[5].innerText
-    console.log(lineDate, linePlot, lineVariety)
     try{
         const response = await fetch('deletePlot', {
             method: 'delete',
@@ -35,17 +34,19 @@ Array.from(YieldNumber).forEach((element)=>{
 })
 
 async function addYield(){
-    const sName = this.parentNode.childNodes[1].innerText
-    const bName = this.parentNode.childNodes[3].innerText
-    const tLikes = Number(this.parentNode.childNodes[5].innerText)
+    const lineDate = this.parentNode.childNodes[1].innerText
+    const linePlot = this.parentNode.childNodes[3].innerText
+    const lineVariety = this.parentNode.childNodes[5].innerText
+    const lineYield = Number(this.parentNode.childNodes[7].innerText)
     try{
-        const response = await fetch('addOneLike', {
+        const response = await fetch('addOneYield', {
             method: 'put',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'stageNameS': sName,
-              'birthNameS': bName,
-              'likesS': tLikes
+                'DateUpdate': lineDate,
+                'PlotUpdate': linePlot,
+                'VarietyUpdate': lineVariety,
+                'YieldUpdate': lineYield
             })
           })
         const data = await response.json()
