@@ -3,8 +3,10 @@ const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient
 const app = express();
 
-const dotenv = require('dotenv') // .env file
-dotenv.config() // using .env
+require('dotenv').config();
+
+// const dotenv = require('dotenv') // .env file
+// dotenv.config() // using .env
 const connectionString = `mongodb+srv://${process.env.USERNAME}:${process.env.PW}@cluster0.sgg7p.mongodb.net/?retryWrites=true&w=majority`;
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
