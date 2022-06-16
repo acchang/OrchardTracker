@@ -18,9 +18,16 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
     app.use(express.static('public'))
     app.use(bodyParser.json())
 
-    app.listen(3000, function() {
-      console.log('listening on 3000')
-      })
+    // app.listen(3000, function() {
+    //   console.log('listening on 3000')
+    //   })
+
+    let port = process.env.PORT;
+    if (port == null || port == "") {
+      port = 8000;
+    }
+    app.listen(port);
+
 
       app.post('/tree-record', (req, res) => {
         treesCollection.insertOne(
