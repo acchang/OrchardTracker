@@ -3,11 +3,9 @@ const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient
 const app = express();
 
-// require('dotenv').config();
+require('dotenv').config();
 
-const connectionString = `mongodb+srv://${KEY}:${VALUE}@cluster0.sgg7p.mongodb.net/?retryWrites=true&w=majority`;
-
-// const connectionString = `mongodb+srv://${process.env.USERNAME}:${process.env.PW}@cluster0.sgg7p.mongodb.net/?retryWrites=true&w=majority`;
+const connectionString = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.sgg7p.mongodb.net/?retryWrites=true&w=majority`;
 // const connectionString = `mongodb+srv://heroku:heroku@cluster0.sgg7p.mongodb.net/?retryWrites=true&w=majority`;
 
 
