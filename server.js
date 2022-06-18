@@ -3,7 +3,7 @@ const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient
 const app = express();
 
-require('dotenv').config();
+require('dotenv').config({ debug: true })
 
 console.log(process.env.USERNAME)
 console.log(process.env.PASSWORD)
