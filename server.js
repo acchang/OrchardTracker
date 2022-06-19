@@ -4,16 +4,20 @@ if(process.env.NODE_ENV !== 'production'){
 }
 
 const express = require('express');
+const app = express();
 const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient
-const app = express();
+
 
 // require('dotenv').config({ debug: true })
 
-const connectionString = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.sgg7p.mongodb.net/?retryWrites=true&w=majority`;
+// const connectionString = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.sgg7p.mongodb.net/?retryWrites=true&w=majority`;
 // const connectionString = `mongodb+srv://heroku:heroku@cluster0.sgg7p.mongodb.net/?retryWrites=true&w=majority`;
 
-MongoClient.connect(connectionString, { useUnifiedTopology: true })
+
+MongoClient.connect(process.env.DATABASE_URL, { useUnifiedTopology: true})
+
+// MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
     console.log('Connected to Database')
     const db = client.db('my-trees')
