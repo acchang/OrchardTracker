@@ -8,15 +8,10 @@ const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient
 const app = express();
 
-require('dotenv').config({ debug: true })
-
-console.log(process.env.USERNAME)
-console.log(process.env.PASSWORD)
+// require('dotenv').config({ debug: true })
 
 const connectionString = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.sgg7p.mongodb.net/?retryWrites=true&w=majority`;
 // const connectionString = `mongodb+srv://heroku:heroku@cluster0.sgg7p.mongodb.net/?retryWrites=true&w=majority`;
-
-console.log(connectionString)
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true })
   .then(client => {
