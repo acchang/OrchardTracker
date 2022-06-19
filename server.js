@@ -1,3 +1,8 @@
+if(process.env.NODE_ENV !== 'production'){
+  const dotenv = require('dotenv')
+  dotenv.config({path: 'vars.env'})
+}
+
 const express = require('express');
 const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient
@@ -128,11 +133,6 @@ MongoClient.connect(connectionString, { useUnifiedTopology: true })
         })
         .catch(error => console.error(error))
       })
-
-
-
-
-
 
 
   })
