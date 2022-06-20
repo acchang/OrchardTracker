@@ -9,12 +9,8 @@ const app = express();
 const bodyParser= require('body-parser');
 const MongoClient = require('mongodb').MongoClient
 
-
-// require('dotenv').config({ debug: true })
-
 // const connectionString = `mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@cluster0.sgg7p.mongodb.net/?retryWrites=true&w=majority`;
 // const connectionString = `mongodb+srv://heroku:heroku@cluster0.sgg7p.mongodb.net/?retryWrites=true&w=majority`;
-
 
 MongoClient.connect(process.env.DATABASE_URL, { useUnifiedTopology: true})
 
@@ -25,9 +21,13 @@ MongoClient.connect(process.env.DATABASE_URL, { useUnifiedTopology: true})
     const treesCollection = db.collection('trees')
     
     app.set('view engine', 'ejs')
-    app.use(bodyParser.urlencoded({ extended: true }))
-    app.use(express.static('public'))
-    app.use(bodyParser.json())
+    // app.use(bodyParser.urlencoded({ extended: true }))
+    // app.use(express.static('public'))
+    // app.use(bodyParser.json())
+
+    app.use(express.urlencoded({ extended: true }))
+    app.use(express.json())
+
 
     // app.listen(3000, function() {
     //   console.log('listening on 3000')
