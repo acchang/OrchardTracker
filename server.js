@@ -1,6 +1,7 @@
 if(process.env.NODE_ENV !== 'production'){
   const dotenv = require('dotenv')
-  dotenv.config({path: 'vars.env'})
+  dotenv.config({ debug: true })
+  // dotenv.config({path: 'vars.env'})
 }
 
 const express = require('express');
