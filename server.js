@@ -24,7 +24,6 @@ MongoClient.connect(process.env.DATABASE_URL, { useUnifiedTopology: true})
     app.use(express.static('public'))
     app.use(bodyParser.json())
 
-
     let port = process.env.PORT;
     if (port == null || port == "") {
       port = 8000;
