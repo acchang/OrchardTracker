@@ -12,7 +12,6 @@ const app = express();
 const MongoClient = require('mongodb').MongoClient
 
 MongoClient.connect(process.env.DATABASE_URL, { useUnifiedTopology: true})
-
   .then(client => {
     console.log('Connected to Database')
     const db = client.db('my-trees')
@@ -50,6 +49,7 @@ MongoClient.connect(process.env.DATABASE_URL, { useUnifiedTopology: true})
         .catch(error => console.error(error))
       }) 
 
+// doesn't work past here, why?
 
       app.put('/trees', (req, res) => {
         treesCollection.findOneAndUpdate(
