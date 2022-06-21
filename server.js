@@ -10,12 +10,12 @@ if(process.env.NODE_ENV !== 'production'){
 const express = require('express');
 const app = express();
 const MongoClient = require('mongodb').MongoClient
+const db = client.db('my-trees')
+const treesCollection = db.collection('trees')
 
 MongoClient.connect(process.env.DATABASE_URL, { useUnifiedTopology: true})
   .then(client => {
     console.log('Connected to Database')
-    const db = client.db('my-trees')
-    const treesCollection = db.collection('trees')
   })
   .catch(error => console.error(error))
 
