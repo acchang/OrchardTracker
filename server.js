@@ -19,10 +19,12 @@ MongoClient.connect(process.env.DATABASE_URL, { useUnifiedTopology: true})
     const db = client.db('my-trees')
     const treesCollection = db.collection('trees')
     
+    app.use(express.urlencoded({ extended: true }))
+    app.use(express.json())
     app.set('view engine', 'ejs')
-    app.use(bodyParser.urlencoded({ extended: true }))
     app.use(express.static('public'))
-    app.use(bodyParser.json())
+    // app.use(bodyParser.urlencoded({ extended: true }))
+    // app.use(bodyParser.json())
 
     let port = process.env.PORT;
     if (port == null || port == "") {
