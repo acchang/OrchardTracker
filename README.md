@@ -1,3 +1,5 @@
+I need to do a better job with this and follow a format.
+-------------------------
 This was my first foray into Node.js, Express, MongoDB and Heroku.
 
 I combined what I learned from these three areas:
