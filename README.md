@@ -1,6 +1,6 @@
 I need to do a better job with this and follow a format.
 
-talk about farming, things to add. use others as a template.
+talk about farming, things to add. use others as a template. 
 
 
 -------------------------
