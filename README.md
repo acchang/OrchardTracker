@@ -2,7 +2,7 @@ I need to do a better job with this and follow a format.
 
 talk about farming, things to add. use others as a template. 
 
-I still need to write this, get back to coding
+I still need to write this, get back to coding.
 -------------------------
 This was my first foray into Node.js, Express, MongoDB and Heroku.
 
