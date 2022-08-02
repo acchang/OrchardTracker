@@ -2,7 +2,7 @@
 
 This was my first attempt at a full stack CRUD web app using Node.js, Express, MongoDB, and some EJS.
 
-**Live:** https://btionary.herokuapp.com/
+**Live:** https://orchardtracker.herokuapp.com/
 
 ## How it's made
 
