@@ -7,10 +7,10 @@ This was my first attempt at a full stack CRUD web app using Node.js, Express, M
 ## How it's made
 
 I combined what I learned from these three areas:
-https://zellwk.com/blog/crud-express-mongodb/
-https://fullstackopen.com/en/part3/node_js_and_express/
-https://www.twitch.tv/videos/1499332272
-(code: https://github.com/100devs/rap-names-express)
+* https://zellwk.com/blog/crud-express-mongodb/
+* https://fullstackopen.com/en/part3/node_js_and_express/
+* https://www.twitch.tv/videos/1499332272
+* (code: https://github.com/100devs/rap-names-express)
 
 It uses HTML, CSS, JavaScript for the front end. 
 
